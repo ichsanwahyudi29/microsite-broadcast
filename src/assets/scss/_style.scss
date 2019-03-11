@@ -1,0 +1,164 @@
+body {
+  margin: 0;
+}
+
+.broadcast-chat {
+  font-family: "Nunito Sans";
+
+  .container {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin: 0 auto;
+    @include breakpoint(sm) {
+      width: 800px;
+    }
+  }
+
+  .underline {
+    position: relative;
+    display: inline-block;
+    &::before,
+    &::after {
+      content: "";
+      display: block;
+      height: 6px;
+      position: absolute;
+      bottom: -10px;
+      background-color: $green;
+      border-radius: 4px;
+      left: 0;
+      right: 0;
+      margin: 0 auto;
+    }
+    &::before {
+      width: 48px;
+    }
+    &::after {
+      width: 6px;
+      left: 60px;
+    }
+  }
+
+  &__main {
+    height: 573px;
+    background-image: linear-gradient(
+      296deg,
+      rgba(0, 238, 190, 0.7),
+      #bffedf 69%,
+      rgba(0, 207, 208, 0.5)
+    );
+    position: relative;
+    &:after {
+      content: "";
+      display: block;
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 262px;
+      background-image: linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0),
+        #ffffff
+      );
+    }
+    &-img {
+      min-width: 625px;
+      max-width: 625px;
+      display: block;
+      position: absolute;
+      right: 0;
+      bottom: 104px;
+      z-index: 1;
+    }
+    &-text {
+      position: relative;
+      top: 140px;
+      z-index: 1;
+      h1 {
+        margin: 0 0 35px;
+        font-size: 40px;
+        color: $blackPrimary;
+      }
+      p {
+        margin: 0;
+        color: $blackPrimary;
+        font-weight: 300;
+        font-size: 32px;
+        max-width: 380px;
+      }
+    }
+  }
+
+  &__explanation {
+    position: relative;
+    text-align: center;
+    margin-bottom: 72px;
+    h2 {
+      font-weight: 300;
+      margin: 0 0 40px;
+    }
+    p {
+      color: $blackSecondary;
+      margin: 0;
+    }
+    &-illus {
+      position: absolute;
+      top: 227px;
+      left: 0;
+      max-width: 424px;
+    }
+    &-fitur {
+      margin-bottom: 32px;
+      .explanation-fitur {
+        &__img {
+          height: 185px;
+          display: flex;
+          align-items: flex-end;
+          margin-bottom: 16px;
+          img {
+            display: block;
+            max-width: 141px;
+            margin: 0 auto;
+          }
+        }
+      }
+      h6 {
+        margin: 0;
+        line-height: 1.5;
+        font-size: $f14;
+      }
+    }
+    &-video {
+      position: relative;
+      .explanation-video {
+        &__topads {
+          width: 145px;
+          position: absolute;
+          top: 65.5px;
+          left: 0;
+          animation-name: wiggle;
+          animation-duration: 5s;
+          animation-iteration-count: infinite;
+          animation-timing-function: cubic-bezier(.39,.575,.565,1);
+        }
+        &__content {
+          width: 560px;
+          margin: 0 auto;
+          display: block;
+        }
+      }
+    }
+  }
+
+  &__advantage{
+    text-align: center;
+    &-list{
+        text-align: left;
+        img{
+            max-width: 270px;
+            display: block;
+        }
+    }
+  }
+
+}
