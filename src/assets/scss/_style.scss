@@ -1,11 +1,13 @@
 body {
-  margin: 0;
+	margin: 0;
+	overflow-x: hidden;
 }
 
 .broadcast-chat {
-  font-family: "Nunito Sans";
-
-  .container {
+	$bc:&;
+	font-family: "Open Sans";
+	
+  &__container {
     padding-right: 15px;
     padding-left: 15px;
     margin: 0 auto;
@@ -14,30 +16,48 @@ body {
     }
   }
 
-  .underline {
+  &__underline {
     position: relative;
-    display: inline-block;
-    &::before,
+		display: block;
+		width: 48px;
+		height: 6px;
+		background-color: $green;
+		border-radius: 4px;
+		margin: 16px auto 0;
+		&--left{
+			margin: initial;
+		}
+		&--rotate{
+			transform: rotate(180deg);
+		}
     &::after {
       content: "";
-      display: block;
-      height: 6px;
-      position: absolute;
-      bottom: -10px;
+			display: block;
+			width: 6px;
+      height: 100%;
+			position: absolute;
+			left: 54px;
       background-color: $green;
       border-radius: 4px;
-      left: 0;
-      right: 0;
-      margin: 0 auto;
-    }
-    &::before {
-      width: 48px;
-    }
-    &::after {
-      width: 6px;
-      left: 60px;
     }
   }
+
+  &__title {
+    font-size: 28px;
+    line-height: 1.21;
+    letter-spacing: -0.3px;
+		color: $blackPrimary;
+		font-family: "Nunito Sans";
+		margin: 0;
+	}
+
+	&__desc{
+		color: $blackSecondary;
+		margin: 0;
+		line-height: 1.43;
+	}
+	
+	/* Main Content */
 
   &__main {
     height: 573px;
@@ -73,39 +93,81 @@ body {
     &-text {
       position: relative;
       top: 140px;
-      z-index: 1;
-      h1 {
-        margin: 0 0 35px;
-        font-size: 40px;
-        color: $blackPrimary;
-      }
-      p {
-        margin: 0;
-        color: $blackPrimary;
-        font-weight: 300;
-        font-size: 32px;
-        max-width: 380px;
-      }
-    }
-  }
+			z-index: 1;
+			.main-text{
+				&__title{
+					margin: 0 0 8px;
+					font-size: 38px;
+					letter-spacing: -0.5px;
+					color: $blackPrimary;
+					font-family: "Nunito Sans";
+				}
+				&__subtitle{
+					max-width: 342px;
+					margin: 32px 0 56px;
+				}
+				&__btn{
+					display: flex;
+					align-items: center;
+					a{
+						display: inline-block;
+						&:first-child{
+							margin-right: 16.7px;
+							button{
+								width: 194px;
+							}
+						}
+						&:last-child{
+							button{
+								width: 177px;
+							}
+						}
+					}
+				}
+			}
+		}
+		.main-illus{
+			position: absolute;
+			display: block;
+			z-index: 1;
+			&--1{
+				max-width: 74px;
+				right: 43%;
+			}
+			&--2{
+				max-width: 49px;
+				right: 49%;
+				top: 155px;
+			}
+			&--3{
+				max-width: 60px;
+				left: 157px;
+				top: 312px;
+			}
+			&--4{
+				max-width: 138px;
+				left: 0;
+				top: 130px;
+			}
+		}
+	}
+	
+	/* Explanation Content */
 
   &__explanation {
     position: relative;
     text-align: center;
-    margin-bottom: 72px;
-    h2 {
-      font-weight: 300;
-      margin: 0 0 40px;
-    }
-    p {
-      color: $blackSecondary;
-      margin: 0;
-    }
+    padding-bottom: 72px;
+    &-desc{
+			margin-top: 24px;
+			line-height: 1.71;
+		}
     &-illus {
       position: absolute;
       top: 227px;
       left: 0;
       max-width: 424px;
+      z-index: -1;
     }
     &-fitur {
       margin-bottom: 32px;
@@ -120,12 +182,14 @@ body {
             max-width: 141px;
             margin: 0 auto;
           }
-        }
-      }
-      h6 {
-        margin: 0;
-        line-height: 1.5;
-        font-size: $f14;
+				}
+				&__title{
+					margin: 0;
+					line-height: 1.33;
+					font-size: 18px;
+					font-family: "Nunito Sans";
+					color: $blackPrimary;
+				}
       }
     }
     &-video {
@@ -139,7 +203,7 @@ body {
           animation-name: wiggle;
           animation-duration: 5s;
           animation-iteration-count: infinite;
-          animation-timing-function: cubic-bezier(.39,.575,.565,1);
+          animation-timing-function: cubic-bezier(0.39, 0.575, 0.565, 1);
         }
         &__content {
           width: 560px;
@@ -150,15 +214,202 @@ body {
     }
   }
 
-  &__advantage{
-    text-align: center;
-    &-list{
-        text-align: left;
-        img{
+  &__advantage {
+		text-align: center;
+		position: relative;
+    padding-bottom: 72px;
+    &-illus {
+      position: absolute;
+      right: -250px;
+      z-index: -1;
+      top: -50px;
+			// max-width: 211px;
+			animation-name: spinner;
+			animation-duration: 70s;
+			animation-iteration-count: infinite;
+			animation-timing-function: linear;
+    }
+    &-list {
+      margin-top: 65px;
+      text-align: left;
+      color: $blackSecondary;
+      .advantage-list {
+				&__title{
+					font-size: 18px;
+					font-family: "Nunito Sans";
+					line-height: 1.33;
+					color: $blackPrimary;
+					text-transform: capitalize;
+					margin: 0 0 16px;
+				}
+				&__desc{
+					line-height: 1.43;
+					font-size: 14px;
+					margin: 0;
+					color: $blackSecondary;
+				}
+        &__img {
+          display: flex;
+          justify-content: flex-end;
+          align-items: flex-start;
+          img {
             max-width: 270px;
             display: block;
+          }
         }
+      }
+      .row {
+        align-items: center;
+        &:nth-child(2) {
+          margin: 64px 0;
+          .advantage-list {
+            &__img {
+							justify-content: flex-start;
+							img{
+								max-width: 340px;
+							}
+            }
+          }
+        }
+      }
     }
   }
 
+  &__step {
+		text-align: center;
+		padding-bottom: 72px;
+		&-illus{
+			position: absolute;
+			right: 0;
+		}
+    &-content {
+      margin-top: 61px;
+      .step-content {
+        &__img {
+          height: 137px;
+          display: flex;
+          align-items: flex-end;
+          img {
+            display: block;
+            margin: 0 auto;
+          }
+          &-1 {
+						max-width: 181px;
+						position: relative;
+						left: -8px;
+          }
+          &-2 {
+            max-width: 205px;
+          }
+          &-3 {
+            max-width: 191px;
+          }
+				}
+				&__text{
+					margin-top: 40px;
+					&-num{
+						content: attr(aria-label);
+						display: flex;
+						align-items: center;
+						justify-content: center;
+						margin: 0 auto;
+						color: rgba(49, 53, 59, 0.96);
+						font-weight: bold;
+						position: relative;
+						width: 31px;
+						height: 31px;
+						@include backgroundImg;
+						background-image: url(../../assets/img/step-circle.png);
+					}
+					&-title{
+						color: $blackPrimary;
+						line-height: 1.33;
+						margin: 8px 0 0;
+						font-size: 18px;
+						font-family: "Nunito Sans"
+					}
+				}
+				&__line{
+					position: relative;
+					&::before,
+					&::after{
+						content: "";
+						display: block;
+						width: 220px;
+						height: 4px;
+						background-color: $grayBorder;
+						position: absolute;
+						bottom: 45px;
+					}
+					&::before{
+						left: -110px;
+					}
+					&::after{
+						right: -110px;
+					}
+				}
+      }
+    }
+  }
+
+  &__try {
+		padding-top: 40px;
+		box-sizing: border-box;
+		height: 240px;
+		text-align: center;
+		@include backgroundImg;
+		background-image: url("../../assets/img/try-broadcast.png");
+		&-content{
+			.try-content{
+				&__title{
+					font-size: 34px;
+					line-height: 1.18;
+					letter-spacing: -0.4px;
+					margin-bottom: 32px;
+				}
+			}
+		}
+	}
+	
+	&__faq{
+		padding: 48px 0 80px;
+		position: relative;
+		#{$bc}{
+			&__container{
+				position: relative;
+			}
+		}
+		&-illus{
+			max-width: 179px;
+			z-index: -1;
+			position: absolute;
+			right: -80px;
+			bottom: -58px;
+			animation-name: spinner;
+			animation-duration: 70s;
+			animation-iteration-count: infinite;
+			animation-timing-function: linear;
+		}
+		&-accordion{
+			margin-left: auto;
+			margin-right: auto;
+			padding: 40px 80px;
+			max-width: 800px;
+			background-color: $whitePrimary;
+			border-radius: 8px;
+			box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.2);
+		}
+		&-header{
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+		}
+		&-title{
+			font-size: 20px;
+			font-family: "Nunito Sans";
+			line-height: 1.3;
+			letter-spacing: -0.1px;
+			color: $blackPrimary;
+		}
+	}
 }

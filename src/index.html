@@ -5,54 +5,62 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="shortcut icon" href="https://ecs7.tokopedia.net/img/favicon.ico?v=20140313">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans" rel="stylesheet">
     <title>Broadcast Chat</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,800" rel="stylesheet">
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 </head>
 <body>
     <main class="site-main broadcast-chat">
-        <div class="broadcast-chat__main">
-            <div class="container">
+
+        <article class="broadcast-chat__main">
+            <div class="broadcast-chat__container">
                 <div class="broadcast-chat__main-text">
-                    <h1 class="underline">Broadcast Chat</h1>
-                    <p>Sampaikan Pesan Promosi Dalam Sekali Kirim</p>
-                    <div>
-                        <a href="#">
-                            <button>Kenali Broadcast Chat</button>
+                    <h1 class="main-text__title">Broadcast Chat</h1>
+                    <div class="broadcast-chat__underline broadcast-chat__underline--left"></div>
+                    <h2 class="broadcast-chat__title main-text__subtitle">Sampaikan Pesan Promosi Dalam Sekali Kirim</h2>
+                    <div class="main-text__btn">
+                        <a href="#broadcast-chat__explanation">
+                            <button class="unf-btn">Kenali Broadcast Chat</button>
                         </a>
                         <a href="#">
-                            <button>Yuk Coba Sekarang</button>
+                            <button class="unf-btn unf-btn--primary">Yuk Coba Sekarang</button>
                         </a>
                     </div>
                 </div>
                 <img class="broadcast-chat__main-img" src="./assets/img/main.png" alt="">
             </div>
-        </div>
+            <img class="main-illus main-illus--1" src="./assets/img/envelope1.png" alt="">
+            <img class="main-illus main-illus--2" src="./assets/img/envelope2.png" alt="">
+            <img class="main-illus main-illus--3" src="./assets/img/envelope3.png" alt="">
+            <img class="main-illus main-illus--4" src="./assets/img/envelope4.png" alt="">
+        </article>
 
-        <div class="broadcast-chat__explanation">
+        <article id="broadcast-chat__explanation" class="broadcast-chat__explanation">
             <img class="broadcast-chat__explanation-illus" src="./assets/img/illus-fitur.svg" alt="">
-            <div class="container">
-                <h2 class="underline">Kenali <b>Broadcast Chat</b></h2>
-                <p>Broadcast Chat adalah fitur sebar pesan dalam sekali kirim. Anda bisa menjangkau lebih banyak calon pembeli dan menarik kembali pelanggan dengan memberikan informasi yang lebih personal mengenai produk atau promosi terbaru dari toko Anda.</p>
+            <div class="broadcast-chat__container">
+                <h2 class="broadcast-chat__title">Kenali Broadcast Chat</h2>
+                <div class="broadcast-chat__underline"></div>
+                <p class="broadcast-chat__desc broadcast-chat__explanation-desc">Broadcast Chat adalah fitur sebar pesan dalam sekali kirim. Anda bisa menjangkau lebih banyak calon pembeli dan menarik kembali pelanggan dengan memberikan informasi yang lebih personal mengenai produk atau promosi terbaru dari toko Anda.</p>
                 <div class="broadcast-chat__explanation-fitur">           
                     <div class="row">
                         <div class="col-4">
                             <div class="explanation-fitur__img">
                                 <img src="./assets/img/fitur1.png" alt="">
                             </div>
-                            <h6>Banner Promosi</h6>
+                            <h6 class="explanation-fitur__title">Banner Promosi</h6>
                         </div>
                         <div class="col-4">
                             <div class="explanation-fitur__img">
                                 <img src="./assets/img/fitur2.png" alt="">
                             </div>
-                            <h6>Link Produk</h6>
+                            <h6 class="explanation-fitur__title">Link Produk</h6>
                         </div>
                         <div class="col-4">
                             <div class="explanation-fitur__img">
                                 <img src="./assets/img/fitur3.png" alt="">
                             </div>
-                            <h6>Voucher Toko</h6>
+                            <h6 class="explanation-fitur__title">Voucher Toko</h6>
                         </div>
                     </div>
                 </div>
@@ -61,43 +69,107 @@
                     <img class="explanation-video__content" src="./assets/img/video.png" alt="">
                 </div>
             </div>
-        </div>
+        </article>
 
-        <div class="broadcast-chat__advantage">
-            <div class="container">
-                <h2 class="underline">Keuntungan <b>Broadcast Chat</b></h2>
+        <article class="broadcast-chat__advantage">
+            <img class="broadcast-chat__advantage-illus" src="./assets/img/illus-circle.png" alt="">
+            <div class="broadcast-chat__container">
+                <h2 class="broadcast-chat__title">Keuntungan Broadcast Chat</h2>
+                <div class="broadcast-chat__underline broadcast-chat__underline--rotate"></div>
                 <div class="broadcast-chat__advantage-list">
                     <div class="row">
                         <div class="col-6">
-                            <h3>cepat dan mudah</h3>
-                            <p>Mengirim pesan dengan Broadcast Chat hanya butuh tiga langkah: Upload Banner, tulis pesan, lalu klik ‘Kirim’</p>
+                            <h3 class="advantage-list__title">cepat dan mudah</h3>
+                            <p class="advantage-list__desc">Mengirim pesan dengan Broadcast Chat hanya butuh tiga langkah: Upload Banner, tulis pesan, lalu klik ‘Kirim’</p>
                         </div>
-                        <div class="col-6">
+                        <div class="col-6 advantage-list__img">
                             <img src="./assets/img/advantage1.png" alt="">
                         </div>
                     </div>
                     <div class="row">
-                         <div class="col-6">
+                         <div class="col-6 advantage-list__img">
                             <img src="./assets/img/advantage2.png" alt="">
                         </div>
                         <div class="col-6">
-                            <h3>Bebas Kirim Pesan yang Lebih Personal</h3>
-                            <p>Promosi lebih efektif karena Seller dapat mengirim pesan sesuai target sasaran.</p>
+                            <h3 class="advantage-list__title">Bebas Kirim Pesan yang Lebih Personal</h3>
+                            <p class="advantage-list__desc">Promosi lebih efektif karena Seller dapat mengirim pesan sesuai target sasaran.</p>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-6">
-                            <h3>Tingkatkan Potensi Penjualan</h3>
-                            <p>Broadcast Chat dapat ditujukan ke pembeli yang pernah maupun belum pernah berbelanja di toko.</p>
+                            <h3 class="advantage-list__title">Tingkatkan Potensi Penjualan</h3>
+                            <p class="advantage-list__desc">Broadcast Chat dapat ditujukan ke pembeli yang pernah maupun belum pernah berbelanja di toko.</p>
                         </div>
-                        <div class="col-6">
+                        <div class="col-6 advantage-list__img">
                             <img src="./assets/img/advantage3.png" alt="">
                         </div>
                     </div>
-                </div>
-                
+                </div>    
             </div>
-        </div>
+        </article>
+
+        <article class="broadcast-chat__step">
+            <img class="broadcast-chat__step-illus" src="./assets/img/illus-step1.svg" alt="">
+            <div class="broadcast-chat__container">
+                <h2 class="broadcast-chat__title">Langkah Mudah Menggunakan Broadcast Chat</h2>
+                <div class="broadcast-chat__underline"></div>
+                <div class="broadcast-chat__step-content">
+                    <div class="row">
+                        <div class="col-4">
+                            <div class="step-content__img">
+                                <img class="step-content__img-1" src="./assets/img/step1.png" alt="">
+                            </div>
+                            <div class="step-content__text">
+                                <div class="step-content__text-num">1</div>
+                                <h6 class="step-content__text-title">Buat Konten</h6>
+                            </div>
+                        </div>
+                        <div class="col-4 step-content__line">
+                            <div class="step-content__img">
+                                <img class="step-content__img-2" src="./assets/img/step2.png" alt="">
+                            </div>
+                            <div class="step-content__text">
+                                <div class="step-content__text-num">2</div>
+                                <h6 class="step-content__text-title">Atur Biaya</h6>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="step-content__img">
+                                <img class="step-content__img-3" src="./assets/img/step3.png" alt="">
+                            </div>
+                            <div class="step-content__text">
+                                <div class="step-content__text-num">3</div>
+                                <h6 class="step-content__text-title">Pantau Statistik</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <article class="broadcast-chat__try" data-parallax="scroll">
+            <div class="broadcast-chat__container broadcast-chat__try-content">
+                <h2 class="broadcast-chat__title try-content__title">Yuk Coba<br>Broadcast Chat Sekarang</h2>
+                <a href="">
+                    <button class="button button--fancy">Mulai Aja Dulu</button>
+                </a>
+            </div>
+        </article>
+
+        <article class="broadcast-chat__faq">
+            <div class="broadcast-chat__container">
+                <img class="broadcast-chat__faq-illus" src="./assets/img/faq-circle.svg" alt="">
+                <div class="broadcast-chat__faq-accordion">
+                    <div class="broadcast-chat__faq-header">
+                        <h2 class="broadcast-chat__faq-title">Hal yang sering ditanyakan</h2>
+                        <a class="unf-link" href="">Lihat Selengkapnya</a>
+                    </div>
+                    <div class="accordion">
+
+                    </div>
+                </div>
+            </div>
+        </article>
 
     </main>
 </body>

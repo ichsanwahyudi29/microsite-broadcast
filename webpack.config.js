@@ -14,7 +14,7 @@ const webpackConfig = {
   },
   devtool: 'source-map',
   entry: {
-    main: ['./src/index.html','./src/assets/scss/main.scss'],
+    main: ['./src/index.html','./src/assets/scss/main.scss','./src/assets/js/script.js'],
   },
   output: {
     path: path.resolve(__dirname, 'dist'),

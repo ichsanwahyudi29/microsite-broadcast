@@ -52,3 +52,49 @@
   flex: 0 0 100%;
   max-width: 100%;
 }
+
+a[href] {
+  cursor: pointer;
+}
+
+.unf-btn {
+  cursor: pointer;
+  font-family: "Nunito Sans";
+  display: inline-block;
+  height: 40px;
+  line-height: 38px;
+  padding: 0 16px;
+  font-size: 14px;
+  font-weight: 800;
+  background-color: #fff;
+  color: rgba(0, 0, 0, 0.54);
+  border: 1px solid $grayBorder;
+  border-radius: 24px;
+  text-align: center;
+  vertical-align: middle;
+  overflow: hidden;
+  white-space: nowrap;
+	text-overflow: ellipsis;
+	transition: all 0.15s ease-in;
+  &:active,
+  &:focus {
+    outline: none;
+  }
+  &--primary {
+    position: relative;
+    color: #fff;
+    background-image: linear-gradient(104deg, #42b549 30%, #6dcf73 70%);
+    box-shadow: 0 7px 25px 0 rgba(66, 181, 73, 0.2);
+    background-size: 200% 100%;
+    background-position: 50% 0;
+    border: none;
+    transition: background-position 0.3s ease-in-out,
+      -webkit-transform 0.2s ease-out;
+    transition: background-position 0.3s ease-in-out, transform 0.2s ease-out;
+    transition: background-position 0.3s ease-in-out, transform 0.2s ease-out,
+      -webkit-transform 0.2s ease-out;
+    &:hover {
+			background-position: 0;
+    }
+  }
+}
