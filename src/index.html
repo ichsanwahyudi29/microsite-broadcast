@@ -8,6 +8,7 @@
     <title>Broadcast Chat</title>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,800" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,800" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
     <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -15,93 +16,116 @@
 
         <article class="broadcast-chat__main">
             <div class="broadcast-chat__container">
+                <img class="broadcast-chat__main-img broadcast-chat__main-img--mbl" src="./assets/img/main-mobile.png" alt="">
                 <div class="broadcast-chat__main-text">
-                    <h1 class="main-text__title">Broadcast Chat</h1>
-                    <div class="broadcast-chat__underline broadcast-chat__underline--left"></div>
-                    <h2 class="broadcast-chat__title main-text__subtitle">Sampaikan Pesan Promosi Dalam Sekali Kirim</h2>
-                    <div class="main-text__btn">
+                    <h1 class="main-text__title wow fadeInUp" data-wow-delay="0.1s">Broadcast Chat</h1>
+                    <div class="broadcast-chat__underline broadcast-chat__underline--left wow fadeInLeft" data-wow-delay="0.5s"></div>
+                    <h2 class="broadcast-chat__title main-text__subtitle wow fadeInUp" data-wow-delay="0.3s">Sampaikan Pesan Promosi Dalam Sekali Kirim</h2>
+                    <div class="main-text__btn wow fadeInDown">
                         <a href="#broadcast-chat__explanation">
                             <button class="unf-btn">Kenali Broadcast Chat</button>
                         </a>
-                        <a href="#">
+                        <a class="btn-try-broadcast" href="https://www.tokopedia.com/v1/broadcast">
                             <button class="unf-btn unf-btn--primary">Yuk Coba Sekarang</button>
                         </a>
                     </div>
                 </div>
-                <img class="broadcast-chat__main-img" src="./assets/img/main.png" alt="">
+                <img class="broadcast-chat__main-img wow fadeInRight" data-wow-delay="0.1s" src="./assets/img/main.png" alt="">
             </div>
-            <img class="main-illus main-illus--1" src="./assets/img/envelope1.png" alt="">
-            <img class="main-illus main-illus--2" src="./assets/img/envelope2.png" alt="">
-            <img class="main-illus main-illus--3" src="./assets/img/envelope3.png" alt="">
-            <img class="main-illus main-illus--4" src="./assets/img/envelope4.png" alt="">
+            <img class="main-illus main-illus--1 wow jackInTheBox" data-wow-delay="1.2s" src="./assets/img/envelope1.png" alt="">
+            <img class="main-illus main-illus--2 wow jackInTheBox" data-wow-delay="1.3s" src="./assets/img/envelope2.png" alt="">
+            <img class="main-illus main-illus--3 wow jackInTheBox" data-wow-delay="1.4s" src="./assets/img/envelope3.png" alt="">
+            <img class="main-illus main-illus--4 wow jackInTheBox" data-wow-delay="1.5s" src="./assets/img/envelope4.png" alt="">
         </article>
 
         <article id="broadcast-chat__explanation" class="broadcast-chat__explanation">
-            <img class="broadcast-chat__explanation-illus" src="./assets/img/illus-fitur.svg" alt="">
+            <img class="broadcast-chat__explanation-illus wow fadeIn" src="./assets/img/illus-fitur.svg" alt="">
             <div class="broadcast-chat__container">
-                <h2 class="broadcast-chat__title">Kenali Broadcast Chat</h2>
-                <div class="broadcast-chat__underline"></div>
-                <p class="broadcast-chat__desc broadcast-chat__explanation-desc">Broadcast Chat adalah fitur sebar pesan dalam sekali kirim. Anda bisa menjangkau lebih banyak calon pembeli dan menarik kembali pelanggan dengan memberikan informasi yang lebih personal mengenai produk atau promosi terbaru dari toko Anda.</p>
+                <h2 class="broadcast-chat__title wow fadeInUp" data-wow-delay="0.5s">Kenali Broadcast Chat</h2>
+                <div class="broadcast-chat__underline wow fadeInLeft" data-wow-delay="0.7s"></div>
+                <p class="broadcast-chat__desc broadcast-chat__explanation-desc wow fadeInUp" data-wow-delay="0.9s">Broadcast Chat adalah fitur sebar pesan dalam sekali kirim. Anda bisa menjangkau lebih banyak calon pembeli dan menarik kembali pelanggan dengan memberikan informasi yang lebih personal mengenai produk atau promosi terbaru dari toko Anda.</p>
                 <div class="broadcast-chat__explanation-fitur">           
                     <div class="row">
                         <div class="col-4">
-                            <div class="explanation-fitur__img">
+                            <div class="explanation-fitur__img wow jackInTheBox" data-wow-delay="0.2s">
                                 <img src="./assets/img/fitur1.png" alt="">
                             </div>
-                            <h6 class="explanation-fitur__title">Banner Promosi</h6>
+                            <h6 class="explanation-fitur__title wow zoomIn" data-wow-delay="0.2s">Banner Promosi</h6>
                         </div>
                         <div class="col-4">
-                            <div class="explanation-fitur__img">
+                            <div class="explanation-fitur__img wow jackInTheBox" data-wow-delay="0.4s">
                                 <img src="./assets/img/fitur2.png" alt="">
                             </div>
-                            <h6 class="explanation-fitur__title">Link Produk</h6>
+                            <h6 class="explanation-fitur__title wow zoomIn" data-wow-delay="0.4s">Link Produk</h6>
                         </div>
                         <div class="col-4">
-                            <div class="explanation-fitur__img">
+                            <div class="explanation-fitur__img wow jackInTheBox" data-wow-delay="0.6s">
                                 <img src="./assets/img/fitur3.png" alt="">
                             </div>
-                            <h6 class="explanation-fitur__title">Voucher Toko</h6>
+                            <h6 class="explanation-fitur__title wow zoomIn" data-wow-delay="0.6s">Voucher Toko</h6>
                         </div>
                     </div>
                 </div>
                 <div class="broadcast-chat__explanation-video">
-                    <img class="explanation-video__topads" src="./assets/img/illus-topads.png" alt="">
-                    <img class="explanation-video__content" src="./assets/img/video.png" alt="">
+                    <div class="explanation-video__icon wow zoomIn">
+                        <img class="explanation-video__topads" src="./assets/img/illus-topads.png" alt="">
+                    </div>   
+                    <div class="explanation-video__content wow fadeInUp">
+                        <video id="broadcast-desktop-vid" autoplay loop>
+                            <source src="./assets/video/desktop-broadcast.mp4" type="video/mp4">
+                        </video>
+                        
+                        <video id="broadcast-mobile-vid" class="hide" loop>
+                            <source src="./assets/video/mobile-broadcast.mp4" type="video/mp4">
+                        </video>
+
+                        <!-- <video src="https://ecs7.tokopedia.net/assets/images/Banner_v01Compressed.mp4" autoplay="" loop="" muted=""></video> -->
+                    </div>
                 </div>
             </div>
         </article>
 
         <article class="broadcast-chat__advantage">
-            <img class="broadcast-chat__advantage-illus" src="./assets/img/illus-circle.png" alt="">
+            <div class="broadcast-chat__advantage-illus wow fadeIn">
+                <img src="./assets/img/illus-circle.png" alt="">
+            </div>
             <div class="broadcast-chat__container">
-                <h2 class="broadcast-chat__title">Keuntungan Broadcast Chat</h2>
-                <div class="broadcast-chat__underline broadcast-chat__underline--rotate"></div>
+                <h2 class="broadcast-chat__title wow fadeInUp">Keuntungan Broadcast Chat</h2>
+                <div class="broadcast-chat__underline broadcast-chat__underline--rotate wow fadeInLeft"></div>
                 <div class="broadcast-chat__advantage-list">
                     <div class="row">
-                        <div class="col-6">
-                            <h3 class="advantage-list__title">cepat dan mudah</h3>
-                            <p class="advantage-list__desc">Mengirim pesan dengan Broadcast Chat hanya butuh tiga langkah: Upload Banner, tulis pesan, lalu klik ‘Kirim’</p>
+                        <div class="col-5 advantage-list__text broadcast-chat__desktop">
+                            <h3 class="advantage-list__title wow fadeInLeft" data-wow-delay="0.2s">cepat dan mudah</h3>
+                            <p class="advantage-list__desc wow fadeInLeft" data-wow-delay="0.3s">Mengirim pesan dengan Broadcast Chat hanya butuh tiga langkah: Upload Banner, tulis pesan, lalu klik ‘Kirim’</p>
                         </div>
-                        <div class="col-6 advantage-list__img">
+                        <div class="col-7 advantage-list__img wow fadeInRight" data-wow-delay="0.4s">
                             <img src="./assets/img/advantage1.png" alt="">
                         </div>
+                        <div class="col-5 advantage-list__text broadcast-chat__mobile">
+                            <h3 class="advantage-list__title wow fadeInLeft" data-wow-delay="0.2s">cepat dan mudah</h3>
+                            <p class="advantage-list__desc wow fadeInLeft" data-wow-delay="0.3s">Mengirim pesan dengan Broadcast Chat hanya butuh tiga langkah: Upload Banner, tulis pesan, lalu klik ‘Kirim’</p>
+                        </div>
                     </div>
                     <div class="row">
-                         <div class="col-6 advantage-list__img">
+                         <div class="col-7 advantage-list__img wow fadeInLeft" data-wow-delay="0.5s">
                             <img src="./assets/img/advantage2.png" alt="">
                         </div>
-                        <div class="col-6">
-                            <h3 class="advantage-list__title">Bebas Kirim Pesan yang Lebih Personal</h3>
-                            <p class="advantage-list__desc">Promosi lebih efektif karena Seller dapat mengirim pesan sesuai target sasaran.</p>
+                        <div class="col-5 advantage-list__text">
+                            <h3 class="advantage-list__title wow fadeInRight" data-wow-delay="0.3s">Bebas Kirim Pesan yang Lebih Personal</h3>
+                            <p class="advantage-list__desc wow fadeInRight" data-wow-delay="0.4s">Promosi lebih efektif karena Seller dapat mengirim pesan sesuai target sasaran.</p>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-6">
-                            <h3 class="advantage-list__title">Tingkatkan Potensi Penjualan</h3>
-                            <p class="advantage-list__desc">Broadcast Chat dapat ditujukan ke pembeli yang pernah maupun belum pernah berbelanja di toko.</p>
+                        <div class="col-5 advantage-list__text broadcast-chat__desktop">
+                            <h3 class="advantage-list__title wow fadeInLeft" data-wow-delay="0.4s">Tingkatkan Potensi Penjualan</h3>
+                            <p class="advantage-list__desc wow fadeInLeft" data-wow-delay="0.5s">Broadcast Chat dapat ditujukan ke pembeli yang pernah maupun belum pernah berbelanja di toko.</p>
                         </div>
-                        <div class="col-6 advantage-list__img">
+                        <div class="col-7 advantage-list__img wow fadeInRight" data-wow-delay="0.6s">
                             <img src="./assets/img/advantage3.png" alt="">
+                        </div>
+                        <div class="col-5 advantage-list__text broadcast-chat__mobile">
+                            <h3 class="advantage-list__title wow fadeInLeft" data-wow-delay="0.4s">Tingkatkan Potensi Penjualan</h3>
+                            <p class="advantage-list__desc wow fadeInLeft" data-wow-delay="0.5s">Broadcast Chat dapat ditujukan ke pembeli yang pernah maupun belum pernah berbelanja di toko.</p>
                         </div>
                     </div>
                 </div>    
@@ -110,36 +134,37 @@
 
         <article class="broadcast-chat__step">
             <img class="broadcast-chat__step-illus" src="./assets/img/illus-step1.svg" alt="">
+            <div class="broadcast-chat__step-illus-circle"></div>
             <div class="broadcast-chat__container">
-                <h2 class="broadcast-chat__title">Langkah Mudah Menggunakan Broadcast Chat</h2>
-                <div class="broadcast-chat__underline"></div>
+                <h2 class="broadcast-chat__title wow fadeInUp">Langkah Mudah Menggunakan Broadcast Chat</h2>
+                <div class="broadcast-chat__underline wow fadeInLeft"></div>
                 <div class="broadcast-chat__step-content">
                     <div class="row">
                         <div class="col-4">
-                            <div class="step-content__img">
+                            <div class="step-content__img wow zoomIn" data-wow-delay="0.2s">
                                 <img class="step-content__img-1" src="./assets/img/step1.png" alt="">
                             </div>
                             <div class="step-content__text">
-                                <div class="step-content__text-num">1</div>
-                                <h6 class="step-content__text-title">Buat Konten</h6>
+                                <div class="step-content__text-num wow fadeIn" data-wow-delay="0.3s">1</div>
+                                <h6 class="step-content__text-title wow fadeIn" data-wow-delay="0.3s">Buat Konten</h6>
                             </div>
                         </div>
                         <div class="col-4 step-content__line">
-                            <div class="step-content__img">
+                            <div class="step-content__img wow zoomIn" data-wow-delay="0.4s">
                                 <img class="step-content__img-2" src="./assets/img/step2.png" alt="">
                             </div>
                             <div class="step-content__text">
-                                <div class="step-content__text-num">2</div>
-                                <h6 class="step-content__text-title">Atur Biaya</h6>
+                                <div class="step-content__text-num wow fadeIn" data-wow-delay="0.5s">2</div>
+                                <h6 class="step-content__text-title wow fadeIn" data-wow-delay="0.5s">Atur Biaya</h6>
                             </div>
                         </div>
                         <div class="col-4">
-                            <div class="step-content__img">
+                            <div class="step-content__img wow zoomIn" data-wow-delay="0.6s">
                                 <img class="step-content__img-3" src="./assets/img/step3.png" alt="">
                             </div>
                             <div class="step-content__text">
-                                <div class="step-content__text-num">3</div>
-                                <h6 class="step-content__text-title">Pantau Statistik</h6>
+                                <div class="step-content__text-num wow fadeIn" data-wow-delay="0.7s">3</div>
+                                <h6 class="step-content__text-title wow fadeIn" data-wow-delay="0.7s">Pantau Statistik</h6>
                             </div>
                         </div>
                     </div>
@@ -148,25 +173,23 @@
         </article>
 
         <article class="broadcast-chat__try">
-            <!-- <div class="broadcast-chat__try-parallax parallax" data-translation-limit="200">
-
-            </div> -->
+            <!-- <div class="broadcast-chat__try-parallax parallax" data-translation-limit="200"></div> -->
             <!-- <img class="parallax" src="./assets/img/try-broadcast.png" alt="" data-translation-limit="200"> -->
             <div class="broadcast-chat__container broadcast-chat__try-content">
-                <h2 class="broadcast-chat__title try-content__title">Yuk Coba<br>Broadcast Chat Sekarang</h2>
-                <a href="#">
-                    <button class="unf-btn unf-btn--large unf-btn--primary">Mulai Aja Dulu</button>
+                <h2 class="broadcast-chat__title try-content__title wow fadeInUp">Yuk Coba<br>Broadcast Chat Sekarang</h2>
+                <a class="btn-try-broadcast" href="https://www.tokopedia.com/v1/broadcast">
+                    <button class="unf-btn unf-btn--large unf-btn--primary wow fadeInUp" data-wow-delay="0.25s">Mulai Aja Dulu</button>
                 </a>
             </div>
         </article>
 
         <article class="broadcast-chat__faq">
-            <div class="broadcast-chat__container">
+            <div class="broadcast-chat__container wow fadeIn">
                 <img class="broadcast-chat__faq-illus" src="./assets/img/faq-circle.svg" alt="">
                 <div class="broadcast-chat__faq-accordion">
                     <div class="broadcast-chat__faq-header">
                         <h2 class="broadcast-chat__faq-title">Hal yang sering ditanyakan</h2>
-                        <a class="unf-link" href="">Lihat Selengkapnya</a>
+                        <a class="unf-link" href="https://www.tokopedia.com/bantuan/apa-itu-broadcast-chat/#faq-seputar-broadcast-chat">Lihat Selengkapnya</a>
                     </div>
                     <div class="accordion accordion--alt">
                         <div class="accordion-item">
@@ -190,7 +213,12 @@
                                 <h3>Mengapa pesan Broadcast Chat saya tidak terkirimkan?</h3>
                             </div>
                             <div class="accordion-item__body">
-                                <p>Saldo TopAds akan terpotong ketika pesan yang Anda kirimkan sudah diterima oleh followers toko Anda.</p>
+                                <p>Ada beberapa kemungkinan yaitu :</p>
+                                <ul class="numbering">
+                                    <li>Saldo Topads tidak mencukupi (minimal saldo tersisa 50.000 setelah melakukan Broadcast Chat).</li>
+                                    <li>Sudah melakukan Broadcast Chat 1x dalam minggu ini (hanya di limit 1x pengiriman per minggu nya).</li>
+                                    <li>Isi daripada pesan Broadcast Chat tidak sesuai dengan peraturan yang berlaku.</li>
+                                </ul>
                             </div>
                         </div>
                     </div>

@@ -54,13 +54,13 @@ const webpackConfig = {
         ],
       },
       {
-        test: /\.(ttf|otf)$/,
+        test: /\.mp4$/,
         use: [
           {
             loader: 'file-loader',
             options: {
               name: '[name].ext',
-              outputPath: 'assets/font',
+              outputPath: 'assets/video',
             },
           },
         ],
@@ -71,7 +71,7 @@ const webpackConfig = {
           {
             loader: 'html-loader',
             options: {
-              attrs: ['img:src', 'audio:src'],
+              attrs: ['img:src', 'source:src'],
             },
           },
         ],

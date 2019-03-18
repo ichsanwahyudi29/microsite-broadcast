@@ -1,3 +1,5 @@
+import WOW from 'wow.js/dist/wow.js';
+
 (function() {
 	var yScroll = 0;
 	var scrollProgress = 0;
@@ -90,8 +92,80 @@ var accordion = (function(){
 	}
 })();
 
+(function () {
+    var desktopVid = document.getElementById('broadcast-desktop-vid');
+    var mobileVid = document.getElementById('broadcast-mobile-vid');
+
+    desktopVid.ontimeupdate = function() {
+        if( Math.ceil(desktopVid.currentTime) === Math.ceil(desktopVid.duration)){
+            desktopPauseVid();
+        }
+    };
+
+    mobileVid.ontimeupdate = function() {
+        if( Math.ceil(mobileVid.currentTime) === Math.ceil(mobileVid.duration)){
+            mobilePauseVid();
+        }
+    };
+
+    function desktopPlayVid() { 
+        desktopVid.currentTime = 0;
+        desktopVid.play();
+        // if(mobileVid.classList.contains('broadcast-chat__video-fadeOut')){
+        //     mobileVid.classList.remove('broadcast-chat__video-fadeOut')
+        // }
+    }
+
+    function mobilePlayVid() { 
+        mobileVid.currentTime = 0;
+        mobileVid.play();
+        // if(desktopVid.classList.contains('broadcast-chat__video-fadeOut')){
+        //     desktopVid.classList.remove('broadcast-chat__video-fadeOut')
+        // } 
+    }
+
+    function desktopPauseVid() { 
+        desktopVid.pause(); 
+        desktopVid.classList.add('broadcast-chat__video-fadeOut')
+        // setTimeout(() => {
+            if(mobileVid.classList.contains('broadcast-chat__video-fadeOut')){
+                mobileVid.classList.remove('broadcast-chat__video-fadeOut')
+            }
+            mobileVid.classList.add('broadcast-chat__video-fadeIn')
+            mobilePlayVid();
+        // }, 500);    
+    }
+
+    function mobilePauseVid() { 
+        mobileVid.pause(); 
+        mobileVid.classList.add('broadcast-chat__video-fadeOut') 
+        // setTimeout(() => {
+            if(desktopVid.classList.contains('broadcast-chat__video-fadeOut')){
+                desktopVid.classList.remove('broadcast-chat__video-fadeOut')
+            }
+            desktopVid.classList.add('broadcast-chat__video-fadeIn')
+            desktopPlayVid()
+        // }, 500);    
+    }
+})();
+
 $(document).ready(function () {
-    console.log('masuk')
+	new WOW().init();
+
+	// check user session
+
+	var tkpdSession = [
+		{
+			userId: undefined
+		}
+	]
+
+	if(tkpdSession.userId === undefined){
+		// $('.main-text__subtitle').html('Segera Hadir.<br>Sampaikan Pesan Promosi Dalam Sekali Kirim.');
+		// $('.btn-try-broadcast').hide();
+		// $('.try-content__title').html('Nantikan Fitur Broadcast Chat');
+		// $('.broadcast-chat__main').css('height','510px')	
+	}
 })
 
 $(document).on('click', 'a[href^="#"]', function (event) {

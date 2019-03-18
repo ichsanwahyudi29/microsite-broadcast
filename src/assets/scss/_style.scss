@@ -3,16 +3,49 @@ body {
 	overflow-x: hidden;
 }
 
+.hide{
+	display: none;
+}
+
 .broadcast-chat {
 	$bc:&;
 	font-family: "Open Sans";
+
+	&__video-fadeIn{
+		animation-name: fadeIn;
+		animation-duration: 3s;
+		animation-fill-mode: forwards;
+		display: block !important;
+	}
+
+	&__video-fadeOut{
+		animation-name: fadeOut;
+		animation-duration: 2s;
+		animation-fill-mode: forwards;
+		display: none !important;
+	}
+
+	&__mobile{
+		display: none !important;
+		@include breakpoint(xs){
+			display: block !important;
+		}
+	}
+
+	&__desktop{
+		display: block !important;
+		@include breakpoint(xs){
+			display: none !important;
+		}
+	}
 	
   &__container {
-    padding-right: 15px;
-    padding-left: 15px;
-    margin: 0 auto;
-    @include breakpoint(sm) {
-      width: 800px;
+		padding: 0 16px;
+		width: 800px;
+		margin: 0 auto;
+		box-sizing: border-box;
+    @include breakpoint(smd) {
+			width: 100%;
     }
   }
 
@@ -26,6 +59,9 @@ body {
 		margin: 16px auto 0;
 		&--left{
 			margin: initial;
+			@include breakpoint(xs){
+				margin: 0 auto;
+			}
 		}
 		&--rotate{
 			transform: rotate(180deg);
@@ -49,25 +85,28 @@ body {
 		color: $blackPrimary;
 		font-family: "Nunito Sans";
 		margin: 0;
+		@include breakpoint(xs){
+			font-size: 20px;
+		}
 	}
 
 	&__desc{
 		color: $blackSecondary;
 		margin: 0;
 		line-height: 1.43;
+		font-size: 14px;
 	}
 	
 	/* Main Content */
 
   &__main {
-    height: 573px;
-    background-image: linear-gradient(
-      296deg,
-      rgba(0, 238, 190, 0.7),
-      #bffedf 69%,
-      rgba(0, 207, 208, 0.5)
-    );
-    position: relative;
+		height: 573px;
+		position: relative;
+    background-image: linear-gradient(296deg,rgba(0, 238, 190, 0.7),#bffedf 69%,rgba(0, 207, 208, 0.5));
+		@include breakpoint(xs){
+			height: 530px;
+			background-image: linear-gradient(332deg, rgba(0, 238, 190, 0.7), #bffedf 69%, rgba(0, 207, 208, 0.5));
+		}
     &:after {
       content: "";
       display: block;
@@ -79,7 +118,11 @@ body {
         to bottom,
         rgba(255, 255, 255, 0),
         #ffffff
-      );
+			);
+			@include breakpoint(xs){
+				height: 90%;
+				bottom: -1px;
+			}
     }
     &-img {
       min-width: 625px;
@@ -88,12 +131,37 @@ body {
       position: absolute;
       right: 0;
       bottom: 104px;
-      z-index: 1;
+			z-index: 1;
+			@include breakpoint(smd){
+				display: none;
+				min-width: 355px;
+				max-width: 355px;
+			}
+			@include breakpoint(xs){
+				min-width: 255px;
+				max-width: 255px;
+				margin: 0 auto;
+				bottom: 0;
+				top: 40px;
+			}
+			&--mbl{
+				display: none;
+				@include breakpoint(smd){
+					display: block;
+				}
+			}
     }
     &-text {
       position: relative;
-      top: 140px;
-			z-index: 1;
+			top: 140px;
+			z-index: 2;
+			@include breakpoint(xs){
+				text-align: center;
+				top: 238px;
+				max-width: 247px;
+				margin: 0 auto;
+		
+			}
 			.main-text{
 				&__title{
 					margin: 0 0 8px;
@@ -101,18 +169,31 @@ body {
 					letter-spacing: -0.5px;
 					color: $blackPrimary;
 					font-family: "Nunito Sans";
+					@include breakpoint(xs){
+						font-size: 34px;
+					}
 				}
 				&__subtitle{
 					max-width: 342px;
 					margin: 32px 0 56px;
+					@include breakpoint(xs){
+						max-width: 100%;
+						margin: 24px auto;
+					}
 				}
 				&__btn{
 					display: flex;
 					align-items: center;
+					@include breakpoint(xs){
+						flex-direction: column;
+					}
 					a{
 						display: inline-block;
 						&:first-child{
 							margin-right: 16.7px;
+							@include breakpoint(xs){
+								margin: 0 0 8px;
+							}
 							button{
 								width: 194px;
 							}
@@ -120,6 +201,11 @@ body {
 						&:last-child{
 							button{
 								width: 177px;
+							}
+						}
+						button{
+							@include breakpoint(xs){
+								width: 288px !important;
 							}
 						}
 					}
@@ -132,22 +218,39 @@ body {
 			z-index: 1;
 			&--1{
 				max-width: 74px;
-				right: 43%;
+				right: 620px;
+				@include breakpoint(xs){
+					right: 0;
+					left: 12px;
+					top: 105px;
+					max-width: 58px;
+				}
 			}
 			&--2{
 				max-width: 49px;
-				right: 49%;
+				right: 710px;
 				top: 155px;
+				@include breakpoint(xs){
+					right: 0;
+					left: -20px;
+					top: 35px;
+				}
 			}
 			&--3{
 				max-width: 60px;
 				left: 157px;
 				top: 312px;
+				@include breakpoint(xs){
+					display: none
+				}
 			}
 			&--4{
 				max-width: 138px;
 				left: 0;
 				top: 130px;
+				@include breakpoint(xs){
+					display: none;
+				}
 			}
 		}
 	}
@@ -167,16 +270,27 @@ body {
       top: 227px;
       left: 0;
       max-width: 424px;
-      z-index: -1;
+			z-index: -1;
+			@include breakpoint(xs){
+				max-width: 170px;
+				top: 62px;
+			}
     }
     &-fitur {
-      margin-bottom: 32px;
+			margin-bottom: 32px;
+			@include breakpoint(xs){
+				margin-bottom: 40px;
+			}
       .explanation-fitur {
         &__img {
           height: 185px;
           display: flex;
           align-items: flex-end;
-          margin-bottom: 16px;
+					margin-bottom: 16px;
+					@include breakpoint(xs){
+						height: auto;
+						margin-top: 40px;
+					}
           img {
             display: block;
             max-width: 141px;
@@ -193,22 +307,34 @@ body {
       }
     }
     &-video {
-      position: relative;
+			position: relative;
+			video{
+				width: 100%;
+			}
       .explanation-video {
+				&__icon{
+					position: absolute;
+          top: 65.5px;
+					left: 0;
+					z-index: 1;
+				}
         &__topads {
           width: 145px;
-          position: absolute;
-          top: 65.5px;
-          left: 0;
-          animation-name: wiggle;
-          animation-duration: 5s;
-          animation-iteration-count: infinite;
-          animation-timing-function: cubic-bezier(0.39, 0.575, 0.565, 1);
+					animation-name: wiggle !important;
+					animation-duration: 5s;
+					animation-iteration-count: infinite;
+					animation-timing-function: cubic-bezier(0.39, 0.575, 0.565, 1);
+					@include breakpoint(xs){
+						display: none;
+					}
         }
         &__content {
           width: 560px;
           margin: 0 auto;
-          display: block;
+					display: block;
+					@include breakpoint(xs){
+						width: 100%;
+					}
         }
       }
     }
@@ -217,22 +343,31 @@ body {
   &__advantage {
 		text-align: center;
 		position: relative;
-    padding-bottom: 72px;
+		padding-bottom: 72px;
+		// overflow-x: hidden;
     &-illus {
-      position: absolute;
+			position: absolute;
       right: -250px;
       z-index: -1;
       top: -50px;
-			// max-width: 211px;
-			animation-name: spinner;
-			animation-duration: 70s;
-			animation-iteration-count: infinite;
-			animation-timing-function: linear;
+			img{
+				animation-name: spinner;
+				animation-duration: 70s;
+				animation-iteration-count: infinite;
+				animation-timing-function: linear;
+				@include breakpoint(xs){
+					max-width: 208px;
+					right: -230px;
+				}
+			}
     }
     &-list {
       margin-top: 65px;
       text-align: left;
-      color: $blackSecondary;
+			color: $blackSecondary;
+			@include breakpoint(xs){
+				text-align: center;
+			}
       .advantage-list {
 				&__title{
 					font-size: 18px;
@@ -251,22 +386,38 @@ body {
         &__img {
           display: flex;
           justify-content: flex-end;
-          align-items: flex-start;
+					align-items: flex-start;
+					@include breakpoint(xs){
+						justify-content: center;
+					}
           img {
             max-width: 270px;
-            display: block;
+						display: block;
+						@include breakpoint(xs){
+							max-width: 220px;
+							margin-bottom: 24px;
+						}
           }
         }
       }
       .row {
         align-items: center;
         &:nth-child(2) {
-          margin: 64px 0;
+					margin: 64px 0;
+					@include breakpoint(xs){
+						margin: 40px 0;
+					}
           .advantage-list {
             &__img {
 							justify-content: flex-start;
+							@include breakpoint(xs){
+								justify-content: center;
+							}
 							img{
 								max-width: 340px;
+								@include breakpoint(xs){
+									max-width: 260px;
+								}
 							}
             }
           }
@@ -277,10 +428,43 @@ body {
 
   &__step {
 		text-align: center;
+		position: relative;
 		padding-bottom: 72px;
+		@include breakpoint(xs){
+			padding-bottom: 48px;
+		}
 		&-illus{
 			position: absolute;
 			right: 0;
+			z-index: -1;
+			@include breakpoint(xs){
+				max-width: 169px;
+				top: 412px;
+			}
+			&-circle{
+				border-radius: 50%;
+				position: absolute;
+				top: -60px;
+				left: -230px;
+				width: 450px;
+				height: 450px;
+				@include backgroundImg;
+				background-size: 520px;
+				background-image: url(../../assets/img/illus-circle.png);
+				@include breakpoint(smd){
+					width: 250px;
+					height: 250px;
+					background-size: 300px;
+					left: -175px;
+				}
+				@include breakpoint(xs){
+					width: 150px;
+					height: 150px;
+					background-size: 200px;
+					left: -110px;
+					top: 90px;
+				}
+			}
 		}
     &-content {
       margin-top: 61px;
@@ -307,6 +491,9 @@ body {
 				}
 				&__text{
 					margin-top: 40px;
+					@include breakpoint(xs){
+						margin-top: 16px;
+					}
 					&-num{
 						font-size: 14px;
 						display: flex;
@@ -340,7 +527,7 @@ body {
 						background-color: $grayBorder;
 						position: absolute;
 						bottom: 45px;
-						@include breakpoint(smd){
+						@include breakpoint(xs){
 							content: initial;
 						}
 					}
@@ -356,16 +543,19 @@ body {
   }
 
   &__try {
-		padding-top: 40px;
+		padding: 40px 0;
 		box-sizing: border-box;
 		text-align: center;
 		height: 240px;
 		@include backgroundImg;
 		background-image: url("../../assets/img/try-broadcast.png");
-		&-parallax{
-			height: 240px;
-			@include backgroundImg;
-			background-image: url("../../assets/img/try-broadcast.png");
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		@include breakpoint(xs){
+			padding: 24px 0;
+			height: 218px;
+			background-image: url("../../assets/img/try-broadcast-mobile.png");
 		}
 		&-content{
 			.try-content{
@@ -373,11 +563,19 @@ body {
 					font-size: 34px;
 					line-height: 1.18;
 					letter-spacing: -0.4px;
-					margin-bottom: 32px;
+					@include breakpoint(xs){
+						font-size: 24px;
+						max-width: 170px;
+						margin: 0 auto;
+					}
 				}
 			}
 			button{
 				width: 238px;
+				margin-top: 32px;
+				@include breakpoint(xs){
+					width: 288px;
+				}
 			}
 		}
 		img{
@@ -389,6 +587,9 @@ body {
 	&__faq{
 		padding: 48px 0 80px;
 		position: relative;
+		@include breakpoint(xs){
+			padding: 24px 0 48px;
+		}
 		#{$bc}{
 			&__container{
 				position: relative;
@@ -398,40 +599,65 @@ body {
 			max-width: 179px;
 			z-index: -1;
 			position: absolute;
-			right: -80px;
+			right: -100px;
 			bottom: -58px;
 			animation-name: spinner;
 			animation-duration: 70s;
 			animation-iteration-count: infinite;
 			animation-timing-function: linear;
+			@include breakpoint(smd){
+				display: none;
+			}
 		}
 		&-accordion{
 			margin-left: auto;
 			margin-right: auto;
-			padding: 40px 80px;
-			max-width: 800px;
+			padding: 40px 80px 26px 80px;
+			box-sizing: border-box;
+			width: 800px;
 			background-color: $whitePrimary;
 			border-radius: 8px;
 			box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.2);
+			@include breakpoint(smd){
+				width: 100%;
+			}
+			@include breakpoint(xs){
+				padding: 24px 24px 8px 24px;
+			}
 			.accordion{
+				margin: 0;
 				&-item{
 					&__head{
 						h3{
-							color: $black;
+							color: $blackPrimary;
 							margin: 0;
+							@include breakpoint(xs){
+								width: 85%;
+							}
 						}
 					}
 					&__body{
 						border: none;
 						padding-top: 2px;
+						font-size: 14px;
+						color: $blackSecondary;
+						line-height: 1.43;
+						@include breakpoint(xs){
+							font-size: 12px;
+						}
 						&::before{
 							content: initial;
 						}
 						p{
-							font-size: 14px;
-							color: $blackSecondary;
 							margin: 0;
-							line-height: 1.43;
+						}
+						.numbering{
+							padding-left: 15px;
+							margin: 8px 0 0;
+							li{
+								list-style: decimal;
+								padding-left: 10px;
+							}
 						}
 					}
 				}
@@ -442,6 +668,11 @@ body {
 			align-items: center;
 			justify-content: space-between;
 			padding-bottom: 40px;
+			@include breakpoint(xs){
+				flex-direction: column;
+				align-items: flex-start;
+				padding-bottom: 24px;
+			}
 		}
 		&-title{
 			font-size: 20px;
@@ -450,6 +681,10 @@ body {
 			letter-spacing: -0.1px;
 			color: $blackPrimary;
 			margin: 0;
+			@include breakpoint(xs){
+				font-size: 18px;
+				margin-bottom: 16px;
+			}
 		}
 	}
 }
