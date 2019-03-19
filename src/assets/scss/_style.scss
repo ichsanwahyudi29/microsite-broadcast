@@ -59,7 +59,7 @@ body {
 		margin: 16px auto 0;
 		&--left{
 			margin: initial;
-			@include breakpoint(xs){
+			@include breakpoint(smd){
 				margin: 0 auto;
 			}
 		}
@@ -103,6 +103,9 @@ body {
 		height: 573px;
 		position: relative;
     background-image: linear-gradient(296deg,rgba(0, 238, 190, 0.7),#bffedf 69%,rgba(0, 207, 208, 0.5));
+		@include breakpoint(smd){
+			height: 640px;
+		}
 		@include breakpoint(xs){
 			height: 530px;
 			background-image: linear-gradient(332deg, rgba(0, 238, 190, 0.7), #bffedf 69%, rgba(0, 207, 208, 0.5));
@@ -119,7 +122,8 @@ body {
         rgba(255, 255, 255, 0),
         #ffffff
 			);
-			@include breakpoint(xs){
+			// @include breakpoint(xs){
+			@include breakpoint(smd){
 				height: 90%;
 				bottom: -1px;
 			}
@@ -136,6 +140,9 @@ body {
 				display: none;
 				min-width: 355px;
 				max-width: 355px;
+				margin: 0 auto;
+				bottom: 0;
+				top: 40px;
 			}
 			@include breakpoint(xs){
 				min-width: 255px;
@@ -155,12 +162,15 @@ body {
       position: relative;
 			top: 140px;
 			z-index: 2;
-			@include breakpoint(xs){
+			@include breakpoint(smd){
 				text-align: center;
-				top: 238px;
-				max-width: 247px;
+				max-width: 420px;
 				margin: 0 auto;
-		
+				top: 320px;
+			}
+			@include breakpoint(xs){
+				top: 238px;
+				max-width: 247px;	
 			}
 			.main-text{
 				&__title{
@@ -176,7 +186,7 @@ body {
 				&__subtitle{
 					max-width: 342px;
 					margin: 32px 0 56px;
-					@include breakpoint(xs){
+					@include breakpoint(smd){
 						max-width: 100%;
 						margin: 24px auto;
 					}
@@ -184,6 +194,9 @@ body {
 				&__btn{
 					display: flex;
 					align-items: center;
+					@include breakpoint(smd){
+						justify-content: center;
+					}
 					@include breakpoint(xs){
 						flex-direction: column;
 					}
@@ -219,6 +232,10 @@ body {
 			&--1{
 				max-width: 74px;
 				right: 620px;
+				@include breakpoint(smd){
+					right: 340px;
+					top: 140px;
+				}
 				@include breakpoint(xs){
 					right: 0;
 					left: 12px;
@@ -230,6 +247,10 @@ body {
 				max-width: 49px;
 				right: 710px;
 				top: 155px;
+				@include breakpoint(smd){
+					top: 72px;
+					right: 450px;
+				}
 				@include breakpoint(xs){
 					right: 0;
 					left: -20px;
@@ -240,6 +261,10 @@ body {
 				max-width: 60px;
 				left: 157px;
 				top: 312px;
+				@include breakpoint(smd){
+					top: 185px;
+					left: 135px;			
+				}
 				@include breakpoint(xs){
 					display: none
 				}
@@ -248,6 +273,10 @@ body {
 				max-width: 138px;
 				left: 0;
 				top: 130px;
+				@include breakpoint(smd){
+					max-width: 86px;
+					top: 60px;
+				}
 				@include breakpoint(xs){
 					display: none;
 				}
@@ -310,6 +339,7 @@ body {
 			position: relative;
 			video{
 				width: 100%;
+				height: 100%;
 			}
       .explanation-video {
 				&__icon{
@@ -329,11 +359,13 @@ body {
 					}
         }
         &__content {
-          width: 560px;
+					width: 560px;
+					height: 454px;
           margin: 0 auto;
 					display: block;
 					@include breakpoint(xs){
 						width: 100%;
+						height: auto;
 					}
         }
       }
@@ -344,7 +376,9 @@ body {
 		text-align: center;
 		position: relative;
 		padding-bottom: 72px;
-		// overflow-x: hidden;
+		@include breakpoint(smd){
+			overflow-x: hidden;
+		}
     &-illus {
 			position: absolute;
       right: -250px;
@@ -355,6 +389,10 @@ body {
 				animation-duration: 70s;
 				animation-iteration-count: infinite;
 				animation-timing-function: linear;
+				@include breakpoint(smd){
+					max-width: 305px;
+					right: -230px;
+				}
 				@include breakpoint(xs){
 					max-width: 208px;
 					right: -230px;
@@ -552,7 +590,7 @@ body {
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		@include breakpoint(xs){
+		@include breakpoint(smd){
 			padding: 24px 0;
 			height: 218px;
 			background-image: url("../../assets/img/try-broadcast-mobile.png");

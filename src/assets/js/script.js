@@ -1,51 +1,5 @@
 import WOW from 'wow.js/dist/wow.js';
 
-(function() {
-	var yScroll = 0;
-	var scrollProgress = 0;
-	var viewportHeight = window.innerHeight;
-	var viewportWidth = window.innerWidth;
-	var pageHeight = document.body.scrollHeight;
-    var target = document.getElementsByClassName('parallax');
-
-	function liftElement(element) {
-		var translateLimit = element.dataset.translationLimit || 100
-		var translateValue = Math.floor(scrollProgress * translateLimit);
-		var fadeThreshold = element.dataset.parallaxFadeThreshold || 1;
-
-		element.style.transform = 'translate3d(0, '+ translateValue +'px, 0)';
-
-		if (element.dataset.parallaxFadeout == 'true') {
-			element.style.opacity = 1 - (scrollProgress * fadeThreshold);
-		}
-	}
-
-	function parallax() {
-		if (!target.length) return;
-		
-		for (var i = 0, j = target.length; i < j; i++) {
-			liftElement(target[i]);
-		}
-	}
-
-	if (window.requestAnimationFrame) {
-		function scrollUpdater() {
-			yScroll = window.scrollY;
-			pageHeight = document.body.offsetHeight;
-			scrollProgress = (yScroll / (pageHeight - viewportHeight))
-			viewportWidth = window.innerWidth;
-
-			if (viewportWidth >= 970) {
-				parallax();
-			}
-			
-			requestAnimationFrame(scrollUpdater);
-		}
-		
-		scrollUpdater();
-	}
-})();
-
 // Accordion Widget for FAQ
 var accordion = (function(){
 	var head = document.getElementsByClassName('accordion-item__head');
@@ -111,41 +65,31 @@ var accordion = (function(){
     function desktopPlayVid() { 
         desktopVid.currentTime = 0;
         desktopVid.play();
-        // if(mobileVid.classList.contains('broadcast-chat__video-fadeOut')){
-        //     mobileVid.classList.remove('broadcast-chat__video-fadeOut')
-        // }
     }
 
     function mobilePlayVid() { 
         mobileVid.currentTime = 0;
         mobileVid.play();
-        // if(desktopVid.classList.contains('broadcast-chat__video-fadeOut')){
-        //     desktopVid.classList.remove('broadcast-chat__video-fadeOut')
-        // } 
     }
 
     function desktopPauseVid() { 
         desktopVid.pause(); 
         desktopVid.classList.add('broadcast-chat__video-fadeOut')
-        // setTimeout(() => {
-            if(mobileVid.classList.contains('broadcast-chat__video-fadeOut')){
-                mobileVid.classList.remove('broadcast-chat__video-fadeOut')
-            }
-            mobileVid.classList.add('broadcast-chat__video-fadeIn')
-            mobilePlayVid();
-        // }, 500);    
+		if(mobileVid.classList.contains('broadcast-chat__video-fadeOut')){
+			mobileVid.classList.remove('broadcast-chat__video-fadeOut')
+		}
+		mobileVid.classList.add('broadcast-chat__video-fadeIn')
+		mobilePlayVid();   
     }
 
     function mobilePauseVid() { 
         mobileVid.pause(); 
         mobileVid.classList.add('broadcast-chat__video-fadeOut') 
-        // setTimeout(() => {
-            if(desktopVid.classList.contains('broadcast-chat__video-fadeOut')){
-                desktopVid.classList.remove('broadcast-chat__video-fadeOut')
-            }
-            desktopVid.classList.add('broadcast-chat__video-fadeIn')
-            desktopPlayVid()
-        // }, 500);    
+		if(desktopVid.classList.contains('broadcast-chat__video-fadeOut')){
+			desktopVid.classList.remove('broadcast-chat__video-fadeOut')
+		}
+		desktopVid.classList.add('broadcast-chat__video-fadeIn')
+		desktopPlayVid()  
     }
 })();
 
@@ -154,17 +98,14 @@ $(document).ready(function () {
 
 	// check user session
 
-	var tkpdSession = [
-		{
-			userId: undefined
-		}
-	]
+	var tkpdSession = [{
+		userId: undefined
+	}]
 
-	if(tkpdSession.userId === undefined){
-		// $('.main-text__subtitle').html('Segera Hadir.<br>Sampaikan Pesan Promosi Dalam Sekali Kirim.');
-		// $('.btn-try-broadcast').hide();
-		// $('.try-content__title').html('Nantikan Fitur Broadcast Chat');
-		// $('.broadcast-chat__main').css('height','510px')	
+	if(tkpdSession.userId == undefined){
+		$('.main-text__subtitle').html('Segera Hadir.<br>Sampaikan Pesan Promosi Dalam Sekali Kirim.');
+		$('.btn-try-broadcast').hide();
+		$('.try-content__title').html('Nantikan Fitur Broadcast Chat');
 	}
 })
 
