@@ -192,10 +192,10 @@ $(document).ready(function () {
 
 	/*check user session*/
 
-	var tkpdSession = {
+	/*var tkpdSession = {
 		userId: 2059,
 		shopId: 1624
-	};
+	};*/
 	
 	try {
 		if(tkpdSession.userId !== undefined && tkpdSession.shopId !== undefined && tkpdSession.shopId > 0){
