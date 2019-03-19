@@ -45,7 +45,11 @@
 
 .col-5 {
 	flex:0 0 41.666667%;
-	max-width: 41.666667%
+	max-width: 41.666667%;
+	@include breakpoint(xs){
+		flex: 0 0 100%;
+  	max-width: 100%;
+	}
 }
 
 .col-6 {
@@ -60,6 +64,10 @@
 .col-7 {
 	flex:0 0 58.333333%;
 	max-width: 58.333333%;
+	@include breakpoint(xs){
+		flex: 0 0 100%;
+  	max-width: 100%;
+	}
 }
 
 .col-8 {
