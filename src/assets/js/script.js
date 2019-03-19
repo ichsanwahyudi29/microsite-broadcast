@@ -1,6 +1,6 @@
 import WOW from 'wow.js/dist/wow.js';
 
-// Accordion Widget for FAQ
+/* Accordion Widget for FAQ*/
 var accordion = (function(){
 	var head = document.getElementsByClassName('accordion-item__head');
 	var body = document.getElementsByClassName('accordion-item__body');
@@ -93,19 +93,70 @@ var accordion = (function(){
     }
 })();
 
+var getTopchatBroadcastMetadataGql= function() {
+    var body = `{
+        chatBlastSellerMetadata{
+            status
+        }
+    }`;
+    var query = JSON.stringify({
+        "query": body,
+        "variables" : null,
+        "operationName" : null,
+	});
+	var gqlUrl;
+	try {	
+		var isStaging = (tkpAccountUrl == 'https://accounts-staging.tokopedia.com') ? true : false;
+		gqlUrl = (isStaging ? 'https://gql-staging.tokopedia.com' : 'https://gql.tokopedia.com');  
+	} catch(error) {
+		gqlUrl = 'http://localhost:9000';
+	}	
+
+    var promise = $.ajax({
+        url: gqlUrl,
+        type: 'POST',
+        data: query,
+        contentType: 'application/json',
+        dataType: 'json',
+        xhrFields: { withCredentials: true },
+        success: function(response){}
+	});
+	
+    return promise
+}
+
+function triggerUnavailable() {
+	$('.main-text__subtitle').html('Segera Hadir.<br>Sampaikan Pesan Promosi Dalam Sekali Kirim.');
+	$('.btn-try-broadcast').hide();
+	$('.try-content__title').html('Nantikan Fitur Broadcast Chat');
+}
+
 $(document).ready(function () {
 	new WOW().init();
 
-	// check user session
+	/*check user session*/
 
-	var tkpdSession = [{
-		userId: undefined
-	}]
-
-	if(tkpdSession.userId == undefined){
-		$('.main-text__subtitle').html('Segera Hadir.<br>Sampaikan Pesan Promosi Dalam Sekali Kirim.');
-		$('.btn-try-broadcast').hide();
-		$('.try-content__title').html('Nantikan Fitur Broadcast Chat');
+	/*var tkpdSession = {
+		userId: 2059,
+		shopId: 1624
+	};*/
+	
+	try {
+		if(tkpdSession.userId !== undefined && tkpdSession.shopId !== undefined && tkpdSession.shopId > 0){
+			var promise = getTopchatBroadcastMetadataGql();
+			promise.done(function(response){
+				if(response.data) {
+					if(response.data.chatBlastSellerMetadata) {
+						var metadata = response.data.chatBlastSellerMetadata;
+						if(metadata.status != 1) {
+							triggerUnavailable();
+						}
+					}
+				}
+			});
+		}
+	} catch(error) {
+		/*catch if tkpdSession not initialized*/
 	}
 })
 
