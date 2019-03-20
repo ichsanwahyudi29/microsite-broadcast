@@ -117,7 +117,8 @@ var getTopchatBroadcastMetadataGql= function() {
         type: 'POST',
         data: query,
         contentType: 'application/json',
-        dataType: 'json',
+		dataType: 'json',
+		async: false,
         xhrFields: { withCredentials: true },
         success: function(response){}
 	});
@@ -125,9 +126,16 @@ var getTopchatBroadcastMetadataGql= function() {
     return promise
 }
 
+function triggerAvailable() {
+	$('.main-text__subtitle').html('Sampaikan Pesan Promosi Dalam Sekali Kirim');
+	$('.btn-recognize-broadcast').show();
+	$('.btn-try-broadcast').show();
+	$('.try-content__title').html('Yuk Coba<br>Broadcast Chat Sekarang');
+}
+
 function triggerUnavailable() {
 	$('.main-text__subtitle').html('Segera Hadir.<br>Sampaikan Pesan Promosi Dalam Sekali Kirim.');
-	$('.btn-try-broadcast').hide();
+	$('.btn-recognize-broadcast').show();
 	$('.try-content__title').html('Nantikan Fitur Broadcast Chat');
 }
 
@@ -137,10 +145,12 @@ $(document).ready(function () {
 	/*check user session*/
 
 	/*var tkpdSession = {
-		userId: 2059,
-		shopId: 1624
+	 	userId: 2059,
+	 	shopId: 1624
 	};*/
-	
+
+	var whitelist = true;
+
 	try {
 		if(tkpdSession.userId !== undefined && tkpdSession.shopId !== undefined && tkpdSession.shopId > 0){
 			var promise = getTopchatBroadcastMetadataGql();
@@ -149,14 +159,19 @@ $(document).ready(function () {
 					if(response.data.chatBlastSellerMetadata) {
 						var metadata = response.data.chatBlastSellerMetadata;
 						if(metadata.status != 1) {
-							triggerUnavailable();
+							whitelist = false
 						}
 					}
-				}
+				}	
 			});
 		}
 	} catch(error) {
 		/*catch if tkpdSession not initialized*/
+	}
+	if(whitelist){
+		triggerAvailable();
+	}else{
+		triggerUnavailable();
 	}
 })
 
