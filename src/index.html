@@ -23,10 +23,10 @@
                     <h2 class="broadcast-chat__title main-text__subtitle wow fadeInUp" data-wow-delay="0.3s"></h2>
                     <div class="main-text__btn wow fadeInDown">
                         <a href="#broadcast-chat__explanation" class="btn-recognize-broadcast" style="display: none">
-                            <button class="unf-btn">Kenali Broadcast Chat</button>
+                            <button class="unf-btn unf-btn--fancy">Kenali Broadcast Chat</button>
                         </a>
                         <a class="btn-try-broadcast" href="https://www.tokopedia.com/v1/broadcast" style="display: none">
-                            <button class="unf-btn unf-btn--primary">Yuk Coba Sekarang</button>
+                            <button class="unf-btn unf-btn--fancy unf-btn--primary">Yuk Coba Sekarang</button>
                         </a>
                     </div>
                 </div>
@@ -176,7 +176,7 @@
             <div class="broadcast-chat__container broadcast-chat__try-content">
                 <h2 class="broadcast-chat__title try-content__title wow fadeInUp"></h2>
                 <a class="btn-try-broadcast" href="https://www.tokopedia.com/v1/broadcast" style="display: none">
-                    <button class="unf-btn unf-btn--large unf-btn--primary wow fadeInUp" data-wow-delay="0.25s">Mulai Aja Dulu</button>
+                    <button class="unf-btn unf-btn--fancy unf-btn--large unf-btn--primary wow fadeInUp" data-wow-delay="0.25s">Mulai Aja Dulu</button>
                 </a>
             </div>
         </article>
@@ -223,6 +223,18 @@
                 </div>
             </div>
         </article>
+
+        <div class="unf-overlay"></div>
+        <div id="js__unf-dialog--confirmation" class="unf-dialog unf-dialog--confirmation">
+            <div class="unf-dialog__image">
+                <img src="./assets/img/success-whitelist.png" alt="">
+            </div>
+            <div class="unf-dialog__title">Terima Kasih Toppers</div>
+            <div class="unf-dialog__desc">Pendaftaran kamu akan segera<br>Tokopedia proses</div>
+            <div class="unf-dialog__footer">
+                <button class="unf-btn unf-btn--large unf-btn--primary unf-btn--block" onclick="handleCloseDialog()">OK</button>
+            </div>
+        </div>
 
     </main>
 </body>
