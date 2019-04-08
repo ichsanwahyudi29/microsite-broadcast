@@ -130,6 +130,10 @@ function triggerAvailable() {
   $(".main-text__subtitle").html("Sampaikan Pesan Promosi Dalam Sekali Kirim");
   $(".btn-recognize-broadcast").show();
   $(".btn-try-broadcast").show();
+  if( $(window).width() <= 1024){
+    $(".btn-try-broadcast").addClass("js__dialog-blocker");
+    $(".btn-try-broadcast").removeAttr("href");
+  }
   $(".try-content__title").html("Yuk Coba<br>Broadcast Chat Sekarang");
 }
 
@@ -190,11 +194,20 @@ $(document).on("click", 'a[href^="#"]', function(e) {
   );
 });
 
+$(function handleBtnBlockerVersion() {
+  $(".js__dialog-blocker").on({
+    click: function(e) {
+	  e.stopPropagation();
+      handleOpenDialog("#js__unf-dialog--blocker");
+    }
+  });
+});
+
 $(function handleBtnRegisterBroadcast() {
   $(".js__register-broadcast").on({
     click: function(e) {
 	  e.stopPropagation();
-      handleOpenDialog("#js__unf-dialog--confirmation");
+      handleOpenDialog("#js__unf-dialog--success");
     }
   });
 });

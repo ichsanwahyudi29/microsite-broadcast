@@ -225,12 +225,22 @@
         </article>
 
         <div class="unf-overlay"></div>
-        <div id="js__unf-dialog--confirmation" class="unf-dialog unf-dialog--confirmation">
+        <div id="js__unf-dialog--success" class="unf-dialog unf-dialog--confirmation">
             <div class="unf-dialog__image">
                 <img src="./assets/img/success-whitelist.png" alt="">
             </div>
             <div class="unf-dialog__title">Terima Kasih Toppers</div>
             <div class="unf-dialog__desc">Pendaftaran kamu akan segera<br>Tokopedia proses</div>
+            <div class="unf-dialog__footer">
+                <button class="unf-btn unf-btn--large unf-btn--primary unf-btn--block" onclick="handleCloseDialog()">OK</button>
+            </div>
+        </div>
+        <div id="js__unf-dialog--blocker" class="unf-dialog unf-dialog--confirmation">
+            <div class="unf-dialog__image">
+                <img src="./assets/img/blocker.png" alt="">
+            </div>
+            <div class="unf-dialog__title"></div>
+            <div class="unf-dialog__desc">Saat ini Broadcast Chat hanya<br>tersedia di Tokopedia versi desktop</div>
             <div class="unf-dialog__footer">
                 <button class="unf-btn unf-btn--large unf-btn--primary unf-btn--block" onclick="handleCloseDialog()">OK</button>
             </div>
