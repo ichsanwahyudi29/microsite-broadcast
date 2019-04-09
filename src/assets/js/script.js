@@ -144,7 +144,7 @@ function triggerUnavailable() {
   $(".btn-try-broadcast").show();
   $(".btn-try-broadcast").addClass("js__register-broadcast");
   $(".btn-try-broadcast").removeAttr("href");
-  $(".btn-try-broadcast button").text("Daftar Sekarang");
+  $(".btn-try-broadcast button").text("Yuk Daftar Sekarang");
   $(".try-content__title").html("Yuk daftar jadi salah satu penjual yang terpilih mencoba fitur Broadcast Chat");
 }
 
