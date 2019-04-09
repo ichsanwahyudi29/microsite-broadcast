@@ -130,6 +130,7 @@ function triggerAvailable() {
   $(".main-text__subtitle").html("Sampaikan Pesan Promosi Dalam Sekali Kirim");
   $(".btn-recognize-broadcast").show();
   $(".btn-try-broadcast").show();
+  $(".btn-try-broadcast").addClass("js__try-broadcast");
   if( $(window).width() <= 1024){
     $(".btn-try-broadcast").addClass("js__dialog-blocker");
     $(".btn-try-broadcast").removeAttr("href");
@@ -147,20 +148,22 @@ function triggerUnavailable() {
   $(".try-content__title").html("Yuk daftar jadi salah satu penjual yang terpilih mencoba fitur Broadcast Chat");
 }
 
+var isWhitelist = true;
+
+/* check user session */
+
+/*var tkpdSession = {
+  userId: 2059,
+  shopId: 1624
+};*/
+
+var isLogin = tkpdSession.userId !== undefined && tkpdSession.shopId !== undefined;
+
 $(document).ready(function() {
   new WOW().init();
 
-  /* check user session */
-
-  /*var tkpdSession = {
-    userId: 2059,
-    shopId: 1624
-  };*/
-
-  var isWhitelist = true;
-
 	try {
-		if (tkpdSession.userId !== undefined && tkpdSession.shopId !== undefined && tkpdSession.shopId > 0) {
+		if (isLogin && tkpdSession.shopId > 0) {
 			var promise = getTopchatBroadcastMetadataGql();
 			promise.done(function(response){
 				if(response.data) {
@@ -197,16 +200,48 @@ $(document).on("click", 'a[href^="#"]', function(e) {
 $(function handleBtnBlockerVersion() {
   $(".js__dialog-blocker").on({
     click: function(e) {
-	  e.stopPropagation();
+	    e.stopPropagation();
       handleOpenDialog("#js__unf-dialog--blocker");
     }
   });
 });
 
+window.dataLayer = window.dataLayer || [];
+
+/* try broadcast chat */
+
+$(function handleBtnTryBroadcast() {
+  $(".js__try-broadcast").on({
+    click: function(e) {
+      window.dataLayer.push({
+        "event": "clickChatBroadcast",
+        "eventCategory": "chat-broadcast",
+        "eventAction": "click button daftar atau coba",
+        "eventLabel": (isWhitelist ? "yuk coba sekarang-" : "yuk daftar sekarang-")+(isLogin ? tkpdSession.userId : "")
+      });
+    }
+  });
+});
+
+$(function handleBtnRecognizeBroadcast() {
+  $(".js__recognize-broadcast").on({
+    click: function(e) {;
+      window.dataLayer.push({
+        "event": "clickChatBroadcast",
+        "eventCategory": "chat-broadcast",
+        "eventAction": "click kenali broadcast",
+        "eventLabel": isLogin ? tkpdSession.userId : ""
+      });
+    }
+  });
+});
+
+/* register whitelist seller */
+
 $(function handleBtnRegisterBroadcast() {
   $(".js__register-broadcast").on({
     click: function(e) {
-	  e.stopPropagation();
+	    e.stopPropagation();
       handleOpenDialog("#js__unf-dialog--success");
     }
   });
