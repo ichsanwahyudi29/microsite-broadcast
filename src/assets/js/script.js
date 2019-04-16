@@ -142,28 +142,34 @@ function triggerUnavailable() {
   $(".main-text__subtitle").html("Segera Hadir.<br>Sampaikan Pesan Promosi Dalam Sekali Kirim.");
   $(".btn-recognize-broadcast").show();
   $(".btn-try-broadcast").show();
-  $(".btn-try-broadcast").addClass("js__register-broadcast");
+  if(isSeller){
+    $(".btn-try-broadcast").addClass("js__register-broadcast");
+  }else{
+    $(".btn-try-broadcast").addClass("js__register-shop");
+  }
   $(".btn-try-broadcast").removeAttr("href");
   $(".btn-try-broadcast button").text("Yuk Daftar Sekarang");
   $(".try-content__title").html("Yuk daftar jadi salah satu penjual yang terpilih mencoba fitur Broadcast Chat");
 }
 
+window.dataLayer = window.dataLayer || [];
 var isWhitelist = true;
 
 /* check user session */
 
-/*var tkpdSession = {
+var tkpdSession = {
   userId: 2059,
   shopId: 1624
-};*/
+};
 
 var isLogin = tkpdSession.userId !== undefined && tkpdSession.shopId !== undefined;
+var isSeller = tkpdSession.shopId !== undefined && tkpdSession.shopId > 0;
 
 $(document).ready(function() {
   new WOW().init();
 
 	try {
-		if (isLogin && tkpdSession.shopId > 0) {
+		if (isLogin) {
 			var promise = getTopchatBroadcastMetadataGql();
 			promise.done(function(response){
 				if(response.data) {
@@ -206,10 +212,7 @@ $(function handleBtnBlockerVersion() {
   });
 });
 
-window.dataLayer = window.dataLayer || [];
-
 /* try broadcast chat */
-
 $(function handleBtnTryBroadcast() {
   $(".js__try-broadcast").on({
     click: function(e) {
@@ -217,12 +220,13 @@ $(function handleBtnTryBroadcast() {
         "event": "clickChatBroadcast",
         "eventCategory": "chat-broadcast",
         "eventAction": "click button daftar atau coba",
-        "eventLabel": (isWhitelist ? "yuk coba sekarang-" : "yuk daftar sekarang-")+(isLogin ? tkpdSession.userId : "")
+        "eventLabel": "yuk coba sekarang-"+(isLogin ? tkpdSession.userId : "")
       });
     }
   });
 });
 
+/* recognize broadcast chat */
 $(function handleBtnRecognizeBroadcast() {
   $(".js__recognize-broadcast").on({
     click: function(e) {;
@@ -237,15 +241,30 @@ $(function handleBtnRecognizeBroadcast() {
 });
 
 /* register whitelist seller */
-
 $(function handleBtnRegisterBroadcast() {
   $(".js__register-broadcast").on({
     click: function(e) {
 	    e.stopPropagation();
       handleOpenDialog("#js__unf-dialog--success");
+      window.dataLayer.push({
+        "event": "clickChatBroadcast",
+        "eventCategory": "chat-broadcast",
+        "eventAction": "click button daftar atau coba",
+        "eventLabel": "yuk daftar sekarang-"+(isLogin ? tkpdSession.userId : "")
+      });
     }
   });
 });
+
+/* register shop */
+$(function handleBtnRegisterShop() {
+  $(".js__register-shop").on({
+    click: function(e) {
+      e.stopPropagation();
+      handleOpenDialog("#js__unf-dialog--register-shop");
+    }
+  })
+})
 
 $(function globalCloseDialog() {
   $("body").on({
